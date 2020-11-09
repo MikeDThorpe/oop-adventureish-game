@@ -73,8 +73,8 @@ class Enemy extends Character {
 }
 // create instances of character
 let trump = new Enemy("Donald Trump", "He is wearing a dark blue suit and red tie. His orange face shimmers in the glow of the projector.", "Get out of here!", ["chinese throwing star", "joe biden t-shirt"])
-let ladyGaga = new Friend("Lady Gaga", "She is dancing frivolously by the window.", "Why hey there you! You're going to need this for sure.", "joe biden t-shirt")
-let bruceLee = new Friend("Bruce Lee", "He is perched on the back of an arm chair. Staring out the window, he looks deep in thought.", `"I was expecting you here. Take this, youll need it. And remember - As you think, so shall you become."`, "chinese throwing star");
+let ladyGaga = new Friend("Lady Gaga", "She is dancing frivolously by the window.", "Why hey there you! Are you looking for this? You're going to need this for sure.", "joe biden t-shirt")
+let bruceLee = new Friend("Bruce Lee", "He is perched on the back of an arm chair. Staring out the window, he looks deep in thought.", `"I was expecting you here. Take this, you'll need it. And remember - As you think, so shall you become."`, "chinese throwing star");
 
 // create instances of Room to build a map of the game
 let hall = new Room("hall", "A thin red carpet runs the long length of the corridor. The eerie flicker of candle light shows dusty old paintings lining the walls.")
