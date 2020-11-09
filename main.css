@@ -5,6 +5,12 @@
     box-sizing: border-box;
     color: rgb(0, 255, 0)
 }
+h1 {
+    font-family: 'Grenze Gotisch', cursive;
+}
+h3, h5, p, button, input {
+    font-family: 'Economica', sans-serif;
+}
 *:active, *:hover, *:visited, *:focus {
     outline: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -22,17 +28,17 @@ body {
     text-align: center;
 }
 .container {
-    width: 450px;
+    width: 500px;
     height: 300px;
     margin-top: 50px;
 }
 button {
     width: 125px;
     height: 30px;
-    background-color: rgb(0,255,0);
     margin-top: 30px;
-    color: black;
     border-radius: 20px;
+    background-color: rgb(0,255,0);
+    color: black;
     cursor: pointer;
 }
 #userinput {
@@ -56,4 +62,62 @@ button {
 .speech-area p {
     color: #000;
     font-weight: bold;
+}
+.backpack {
+    display: none;
+    height: 100vh;
+    width: 200px;
+    padding: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+}
+.backpack h5 {
+    margin-top: 5px;
+    color: #000;
+    font-weight: bold;
+}
+.backpack h3 {
+    color: #000;
+}
+.inside-backpack {
+    width: 100%;
+    height: 100%;
+    margin-top: 15px;
+    display: grid;
+    justify-content: center;
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 15px;
+}
+.item {
+    padding: 10px;
+    border-radius: 10px;
+}    
+.image-container {
+    width: 100%;
+    height: 100px;
+    padding: 20px;
+    border-radius: 30px;
+}
+.item-image {
+    height: 100%;
+}
+#item-2, #item-3 {
+    display: none;
+}
+.backpack-toggle {
+    width: fit-content;
+    padding: 5px;
+    position: absolute;
+    top:0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    cursor: pointer;
+}
+.backpack-toggle p {
+    color: #fff;
 }

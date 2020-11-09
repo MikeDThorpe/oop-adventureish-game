@@ -105,11 +105,11 @@ library.linkCharacter(bruceLee);
 bedroom.linkCharacter(ladyGaga);
 cinema.linkCharacter(trump);
 
-// DOM references
-let speechArea = document.querySelector(".speech-area");
-
 // game variables
 let gameOver = false;
+
+// DOM references
+let speechArea = document.querySelector(".speech-area");
 
 // display room function
 function displayInfo(room) {
@@ -135,7 +135,7 @@ function displayInfo(room) {
         } else {
             characterSpeech = "";
         }
-     }, 3000)
+     }, 4000)
 }        
 // start game function
 function startGame() {
@@ -148,7 +148,6 @@ function startGame() {
             const directions = ["north", "east", "south", "west"];
             let userInput = document.querySelector("#userinput").value;
              console.log(userInput);
-            
             if (directions.includes(userInput)) {
                 currentRoom = currentRoom.moveRooms(userInput);
                 displayInfo(currentRoom);
@@ -156,7 +155,6 @@ function startGame() {
                 document.getElementById("userinput").value = "";
                 alert("You can't go that way! Try again.");
             }
-
             if(speechArea.style.display === "block") {
                 speechArea.style.display = "none";
             } else {
