@@ -72,10 +72,31 @@ function displayInfo(room) {
     let gameContent = `<p> ${room.describe()}</p><br><p>${room.getDirections()}</p>`;
     console.log(gameContent);
     document.querySelector(".game-content").innerHTML = gameContent;
+    document.querySelector(".user-action-area").innerHTML = `<input type="text" id="userinput">`;
+    document.querySelector("#userinput").focus();
 }
 
-
-
-
-
 // start game function
+function startGame() {
+    let currentRoom = hall;
+    displayInfo(currentRoom);
+    
+
+
+    // accept user inputs to navigate between rooms
+    document.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                const directions = ["north", "east", "south", "west"];
+                let userInput = document.querySelector("#userinput").value;
+                console.log(userInput);
+                
+                if (directions.includes(userInput)) {
+                    currentRoom = currentRoom.moveRooms(userInput);
+                    displayInfo(currentRoom);
+                } else {
+                    document.getElementById("userinput").value = "";
+                    alert("You can't go that way! Try again.");
+                }
+            }
+        });
+}
