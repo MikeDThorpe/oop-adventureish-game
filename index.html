@@ -25,13 +25,28 @@
             <button onclick="startGame()">START</button>
         </div>
 
+        <!-- you win section -->
+        <section class="you-win">
+            <h1 class="end-game-title">YOU BEAT TRUMP</h1>
+            <img src="/assets/we-are-eternally-grateful.jpg" alt="">
+            <Button class="end-game-button" onclick="location.reload()">Play Again!</Button>
+        </section>
+        <!-- you lose section -->
+        <section class="you-lost">
+            <h1 class="end-game-title">TRUMP GOT YOU!</h1>
+            <h3 class="end-game-title">You didn't find the items to beat trump!</h3>
+            <img src="/assets/giphy.gif" alt="">
+            <Button class="end-game-button" onclick="location.reload()">Play Again!</Button>
+        </section>
+
+        <!-- backpack section -->
         <div class="backpack-toggle">
             <p>Open backpack</p>
         </div>
         <div class="backpack">
             <h3>Backpack</h3>
             <div class="inside-backpack">
-                <div id="item-1" class="item">
+                <div class="item">
                     <div class="image-container">
                         <img class="item-image" src="/assets/torch.jpg" alt="">
                     </div>
@@ -39,20 +54,20 @@
                         <h5>Torch</h5>
                     </div>
                 </div>
-                <div id="item-2" class="item">
-                    <div class="item-image">
-                        
+                <div class="item item-2">
+                    <div class="image-container">
+                        <img class="item-image" src="/assets/chinese-throwing-star.jpg" alt="">
                     </div>
                     <div class="item-title">
                         <h5>Chinese throwing star</h5>
                     </div>
                 </div>
-                <div id="item-3" class="item">
-                    <div class="item-image">
-                        
+                <div class="item item-3">
+                    <div class="image-container">
+                        <img class="item-image" src="/assets/biden-t-shirt.jpg" alt="">
                     </div>
                     <div class="item-title">
-                        <h5>Joe Biden 2020 T-shirt</h5>
+                        <h5>2020 Joe Biden T-shirt</h5>
                     </div>
                 </div>
             </div>
