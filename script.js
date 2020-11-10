@@ -90,10 +90,10 @@ let ladyGaga = new Friend("Lady Gaga", "She is dancing frivolously by the window
 let bruceLee = new Friend("Bruce Lee", "He is perched on the back of an arm chair.", ` "I was expecting you here. Take this, you'll need it. And remember - As you think, so shall you become."`,);
 
 // create instances of Room to build a map of the game
-let hall = new Room("hall", "A thin red carpet runs the long length of the corridor. The eerie flicker of candle light shows dusty old paintings lining the walls.")
-let kitchen = new Room("kitchen", "Copper pans pile high on the counter tops. A small pot bubbles away on the stove as a cat perches on the table staring at you.");
-let library = new Room("library", "Large wooden bookcases line the walls. In the middle of the room a table stands crooked under the weight of a pile of books. The curtains are drawn.");
-let diningRoom = new Room("dining room", "A long wooden dining table fills the center of the room. A chair sits at either end. In the far corner, an opened bottle of Whiskey stands on a drinks cabinet.");
+let hall = new Room("hall", "A thin red carpet runs the long length of the corridor. The eerie flicker of candle light shows dusty paintings lining the walls.")
+let kitchen = new Room("kitchen", "Copper pans pile high on the counter tops. A small pot bubbles away on the stove. A cat perches on the table staring at you.");
+let library = new Room("library", "Large wooden bookcases line the walls. In the middle of the room a table stands crooked under the weight of books.");
+let diningRoom = new Room("dining room", "A long wooden dining table fills the center of the room. A chair sits at either end.");
 let cinema = new Room("cinema", "Rows of red velvet chairs line the room. At the front of the room an empty wooden stage is partly illuminated by the glow of a projector.");
 let bedroom = new Room("bedroom", "Two single beds sit side by side. A large oak wardrobe casts a shadow across the room. At the foot of one bed is a chest.");
 let cellar = new Room("cellar", "It's complete darkness. You hear the gentle drips of a broken pipe.")
@@ -182,7 +182,7 @@ function faceBoss() {
     } else {
         setTimeout(function() {
         loseMessage.style.display = "flex";
-        }, 5000);
+        }, 8000);
     }
 }
 
@@ -212,7 +212,7 @@ function displayInfo(room) {
             } else {
                 characterSpeech = "";
             }
-        }, 2000);
+        }, 5000);
     }  
 }         
 // start game function
