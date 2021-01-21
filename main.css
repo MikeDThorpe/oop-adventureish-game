@@ -11,6 +11,9 @@ h1 {
 h3, h5, p, button, input {
     font-family: 'Economica', sans-serif;
 }
+p {
+    font-size: 1.5rem
+}
 *:active, *:hover, *:visited, *:focus {
     outline: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -45,9 +48,10 @@ button {
 #userinput {
     margin-top: 30px;
     width: 100px;
-    height: 15px;
+    height: 2rem;
     background-color: black;
     text-align: center;
+    font-size: 1.5rem;
 }
 .speech-area {
     display: none;
@@ -72,6 +76,20 @@ button {
     top: 0;
     left: 0;
     background-color: #fff;
+}
+.backpack-toggle {
+    display: none;
+    width: 200px;
+    height: 40px;
+    padding: 5px;
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    cursor: pointer;
 }
 .backpack h5 {
     margin-top: 5px;
@@ -100,32 +118,12 @@ button {
 .item-image {
     height: 100%;
 }
-.backpack-toggle {
-    display: none;
-    width: 200px;
-    height: 40px;
-    padding: 5px;
-    position: absolute;
-    top:0;
-    left: 0;
-    z-index: 10;
-    justify-content: center;
-    align-items: center;
-    background-color: red;
-    cursor: pointer;
-}
 .backpack-toggle p {
     color: #fff;
     font-size: 25px;
 }
 .display-block {
     display: block;
-}
-.item-2 {
-    display: none;
-}
-.item-3 {
-    display: none;
 }
 .you-win, .you-lost {
     display: none;

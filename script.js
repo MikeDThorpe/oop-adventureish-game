@@ -31,7 +31,6 @@ class Room {
             return this.linkedRooms[direction];
         } else {
             alert("You can't go that way!");
-            alert("this.name");
             return this;
         }
     }
@@ -171,21 +170,30 @@ function addItemBackpack(room) {
     console.log(userBackPack);
 }
 
+// add help function
+
 
 // face final boss
 function faceBoss() {
-    let weakness = trump.weakness;
-    if(userBackPack.includes(weakness[0]) && userBackPack.includes(weakness[1])) {
-        setTimeout(function() {
-            winMessage.style.display = "flex";
-        }, 5000);
-    } else {
-        setTimeout(function() {
-        loseMessage.style.display = "flex";
-        }, 8000);
-    }
+    console.log("facing boss!")
+    let [weaknessOne, weaknessTwo] = trump.weakness;
+
+
+
+    // if(userBackPack.includes(weaknessOne) && userBackPack.includes(weaknessTwo)) {
+    //     setTimeout(function() {
+    //         winMessage.style.display = "flex";
+    //     }, 5000);
+    // } else {
+    //     setTimeout(function() {
+    //     loseMessage.style.display = "flex";
+    //     }, 5000);
+    // }
 }
 
+/**
+ * @param {object} room Displays the information of the room
+ */
 // display room function
 function displayInfo(room) {
     let characterDetails;
@@ -199,22 +207,36 @@ function displayInfo(room) {
     gameContentArea.innerHTML = gameContent;
     document.querySelector(".user-action-area").innerHTML = `<input type="text" id="userinput">`;
     document.querySelector("#userinput").focus();
-    document.querySelector(".title").innerHTML = room.stateLocation();
-    
-    if(room === cinema) {
-        faceBoss();
-    }   else {
-        setTimeout(function(){
-            if (room.characterPresent.talk !== undefined) {
-            characterSpeech = room.characterPresent.talk;
-            speechArea.innerHTML = "<p>" + room.characterPresent.name + " says." + characterSpeech + "</p>";
-            speechArea.style.display = "block";
-            } else {
-                characterSpeech = "";
-            }
-        }, 5000);
-    }  
+    document.querySelector(".title").innerHTML = room.stateLocation(); 
 }         
+
+// runs when user types in 'talk'
+let characterSpeak = (currentRoom) => {
+    if(currentRoom.characterPresent.name === "Bruce Lee") {
+        if(itemTwo.style.display == "none") {
+            let response = prompt(currentRoom.characterPresent.talk);
+            if(response.toLowerCase() === "accept") {
+                addItemBackpack(currentRoom)
+            }
+        } else {
+            return alert("I've already given you what i've got. Now please leave me alone.")
+        }       
+    } else if (currentRoom.characterPresent.name === "Lady Gaga") {
+        if(itemThree.style.display == "none") {
+            let response = prompt(currentRoom.characterPresent.talk);
+            if(response.toLowerCase() === "accept") {
+                addItemBackpack(currentRoom)
+            }
+        } else {
+            return alert("I've already given you what i've got. Now please leave me alone.")
+        }     
+    } else if(currentRoom === "Cinema") {
+        faceBoss()
+    } else {
+        return alert("Theres's no one here. Who are you talking to?")
+    }
+} 
+
 // start game function
 function startGame() {
     backPackToggle.style.display = "flex";
@@ -226,18 +248,15 @@ function startGame() {
         if (event.key === "Enter") {
             const directions = ["north", "east", "south", "west"];
             let userInput = document.querySelector("#userinput").value;
-            console.log(userInput);
-            if (directions.includes(userInput)) {
+            if(userInput == "talk") {
+                characterSpeak(currentRoom)
+            } else if (directions.includes(userInput)) {
                 currentRoom = currentRoom.moveRooms(userInput);
                 displayInfo(currentRoom);
-                addItemBackpack(currentRoom);
             } else {
-                document.getElementById("userinput").value = "";
                 alert("You can't go that way! Try again.");
-            } 
-            if (speechArea.style.display === "block") {
-                speechArea.style.display = "none";
             }
+            document.querySelector("#userinput").value = ""
         }
     });
 }    
