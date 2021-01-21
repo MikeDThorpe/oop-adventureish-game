@@ -176,14 +176,13 @@ function addItemBackpack(room) {
 
 // face final boss
 function faceBoss() {
-    console.log("facing boss!")
     let [weaknessOne, weaknessTwo] = trump.weakness;
     console.log(weaknessOne, weaknessTwo)
-    if(userBackPack.includes(weaknessOne, weaknessTwo)) {
+    if(userBackPack.includes(weaknessOne) && userBackPack.includes(weaknessTwo)) {
         alert(`Trump says: "Oh no, you've found my weak spot!"`)
         winMessage.style.display = "flex"
     } else {
-        alert(`Trump says: "Tremendous effort, but you can't defeat me!"`)
+        alert(`Trump says: "Tremendous effort, but you can't defeat me with what you have!"`)
         loseMessage.style.display = "flex"
     }
 }
