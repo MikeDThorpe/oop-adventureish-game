@@ -246,7 +246,7 @@ function startGame() {
             let userInput = document.querySelector("#userinput").value;
             if(userInput == "talk") {
                 characterSpeak(currentRoom)
-            } else if (userInput = "help") {
+            } else if (userInput == "help") {
                 help.style.display = "block"
                 setTimeout(function(){help.style.display = "none"}, 10000)
             } else if (directions.includes(userInput)) {
