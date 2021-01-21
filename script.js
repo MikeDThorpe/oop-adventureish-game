@@ -177,41 +177,19 @@ function addItemBackpack(room) {
 function faceBoss() {
     console.log("facing boss!")
     let [weaknessOne, weaknessTwo] = trump.weakness;
-
-
-
-    // if(userBackPack.includes(weaknessOne) && userBackPack.includes(weaknessTwo)) {
-    //     setTimeout(function() {
-    //         winMessage.style.display = "flex";
-    //     }, 5000);
-    // } else {
-    //     setTimeout(function() {
-    //     loseMessage.style.display = "flex";
-    //     }, 5000);
-    // }
-}
-
-/**
- * @param {object} room Displays the information of the room
- */
-// display room function
-function displayInfo(room) {
-    let characterDetails;
-    if(room.characterPresent.name !== undefined) {
-        characterDetails = "You find " + room.characterPresent.name + ". " + room.characterPresent.description;
+    console.log(weaknessOne, weaknessTwo)
+    if(userBackPack.includes(weaknessOne, weaknessTwo)) {
+        alert(`Trump says: "Oh no, you've found my weak spot!"`)
+        winMessage.style.display = "flex"
     } else {
-        characterDetails = "";
+        alert(`Trump says: "Tremendous effort, but you can't defeat me!"`)
+        loseMessage.style.display = "flex"
     }
-    let gameContent = `<p> ${room.describe()}</p><br><p>${characterDetails}</p><br><p>${room.getDirections()}</p>`;
-    
-    gameContentArea.innerHTML = gameContent;
-    document.querySelector(".user-action-area").innerHTML = `<input type="text" id="userinput">`;
-    document.querySelector("#userinput").focus();
-    document.querySelector(".title").innerHTML = room.stateLocation(); 
-}         
-
+}
+        
 // runs when user types in 'talk'
 let characterSpeak = (currentRoom) => {
+    console.log(currentRoom)
     if(currentRoom.characterPresent.name === "Bruce Lee") {
         if(itemTwo.style.display == "none") {
             let response = prompt(currentRoom.characterPresent.talk);
@@ -230,11 +208,27 @@ let characterSpeak = (currentRoom) => {
         } else {
             return alert("I've already given you what i've got. Now please leave me alone.")
         }     
-    } else if(currentRoom === "Cinema") {
-        faceBoss()
+    } else if (currentRoom.name === "cinema") {
+        return faceBoss()
     } else {
         return alert("Theres's no one here. Who are you talking to?")
     }
+}
+
+// display room function
+function displayInfo(room) {
+    let characterDetails;
+    if(room.characterPresent.name !== undefined) {
+        characterDetails = "You find " + room.characterPresent.name + ". " + room.characterPresent.description;
+    } else {
+        characterDetails = "";
+    }
+    let gameContent = `<p> ${room.describe()}</p><br><p>${characterDetails}</p><br><p>${room.getDirections()}</p>`;
+    
+    gameContentArea.innerHTML = gameContent;
+    document.querySelector(".user-action-area").innerHTML = `<input type="text" id="userinput">`;
+    document.querySelector("#userinput").focus();
+    document.querySelector(".title").innerHTML = room.stateLocation(); 
 } 
 
 // start game function
