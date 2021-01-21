@@ -192,21 +192,21 @@ let characterSpeak = (currentRoom) => {
     console.log(currentRoom)
     if(currentRoom.characterPresent.name === "Bruce Lee") {
         if(itemTwo.style.display == "none") {
-            let response = prompt(currentRoom.characterPresent.talk);
+            let response = prompt(`Bruce Lee says: ${currentRoom.characterPresent.talk}`);
             if(response.toLowerCase() === "accept") {
                 addItemBackpack(currentRoom)
             }
         } else {
-            return alert("I've already given you what i've got. Now please leave me alone.")
+            return alert(`Bruce Lee says: "I've already given you what i've got. Now please leave me alone."`)
         }       
     } else if (currentRoom.characterPresent.name === "Lady Gaga") {
         if(itemThree.style.display == "none") {
-            let response = prompt(currentRoom.characterPresent.talk);
+            let response = prompt(`Lady Gaga says: ${currentRoom.characterPresent.talk}`);
             if(response.toLowerCase() === "accept") {
                 addItemBackpack(currentRoom)
             }
         } else {
-            return alert("I've already given you what i've got. Now please leave me alone.")
+            return alert(`Lady Gaga: "I've already given you what i've got. Now please leave me alone."`)
         }     
     } else if (currentRoom.name === "cinema") {
         return faceBoss()
