@@ -139,6 +139,7 @@ let itemTwo = document.querySelector(".item-2");
 let itemThree = document.querySelector(".item-3");
 let winMessage = document.querySelector(".you-win");
 let loseMessage = document.querySelector(".you-lost");
+let help = document.querySelector("#help")
 
 // event listeners
 backPackToggle.addEventListener("click", () => {
@@ -234,6 +235,7 @@ function displayInfo(room) {
 // start game function
 function startGame() {
     backPackToggle.style.display = "flex";
+    help.style.display = "none";
     let currentRoom = hall;
     displayInfo(currentRoom);
     
@@ -244,6 +246,9 @@ function startGame() {
             let userInput = document.querySelector("#userinput").value;
             if(userInput == "talk") {
                 characterSpeak(currentRoom)
+            } else if (userInput = "help") {
+                help.style.display = "block"
+                setTimeout(function(){help.style.display = "none"}, 10000)
             } else if (directions.includes(userInput)) {
                 currentRoom = currentRoom.moveRooms(userInput);
                 displayInfo(currentRoom);
